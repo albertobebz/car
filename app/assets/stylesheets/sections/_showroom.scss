@@ -1,3 +1,5 @@
+/* Showroom Page Section */
+
 .subtitle {
   @include flexbox;
   @include align-items(center);
@@ -21,7 +23,7 @@
   }
 }
 
-.car-cards--container {
+.car-cards {
   padding: 0 16px;
 
   @include bp-medium {
@@ -36,12 +38,13 @@
     margin: 0 auto;
   }
 
-  .car--cards {
+  .car-cards__unit {
     @include border-radius(6px);
     border: solid 1px #eeeeee;
     margin-bottom: 32px;
 
     @include bp-medium {
+      margin-bottom: 48px;
       width: 321px;
       float: left;
 
@@ -67,13 +70,21 @@
       height: 170px;
       width: 100%;
 
+      @include bp-medium {
+        height: 200px;
+      }
+
       &:after {
         background: linear-gradient(122deg, #0a0b0c, rgba(10, 11, 12, 0));
         position: relative;
-        content: '';
         display: block;
         height: 170px;
         width: 100%;
+        content: '';
+
+        @include bp-medium {
+          height: 200px
+        }
       }
 
       img {
@@ -82,10 +93,14 @@
         width: 100%;
       }
 
-      .btn-bin {
+      .btn-bin,
+      .btn-offert {
         position: absolute;
         cursor: pointer;
         z-index: 9;
+      }
+
+      .btn-bin {
         right: 9px;
         top: 9px;
 
@@ -95,24 +110,18 @@
       }
 
       /* new offert btn */
-      .car-offert {
-        @include btn($corporate-blue, center, 1.44, 16px, 50px, #FFFFFF, 24px, 112px);
-        position: absolute;
-        z-index: 9;
+      .btn-offert {
+        @include btn($wow-blue, center, 1.44, 16px, 50px, #FFFFFF, 24px, 112px);
         left: 17px;
         top: 16px;
       }
 
-      .car-details {
-        transform: translate(-50%,-50%);
-        position: absolute;
+      .car__detail--model {
+        @extend .center-center;
         margin-left: 20px;
         margin-top: 24px;
         color: #FFFFFF;
         width: 100%;
-        z-index: 9;
-        left: 50%;
-        top: 50%;
 
         @include bp-medium {
           width: 321px;
@@ -122,14 +131,14 @@
           width: 254px;
         }
 
-        .make-text,
-        .model-text {
+        p,
+        h3 {
           @include ProximaNova-Bold;
         }
 
-        .make-text {
+        p {
           line-height: 1.5em;
-          font-size: 16px;
+          font-size: $standard-font-size;
 
           @include bp-medium {
             line-height: 1.33em;
@@ -137,7 +146,7 @@
           }
         }
 
-        .model-text {
+        h3 {
           line-height: 1.67em;
           font-size: 24px;
 
@@ -153,27 +162,27 @@
       }
     }
 
-    .car__model {
+    .car__details--spec {
       @include border-bottom-radius(6px);
       background-color: #ffffff;
       color: $dark-gray;
-      padding: 16px;
+      padding: $standard-font-size;
 
       .engine-text {
         @include ProximaNova-Bold;
         line-height: 1.25em;
-        font-size: 16px;
+        font-size: $standard-font-size;
       }
 
       .details-text {
         @include ProximaNova-Regular;
         color: $medium-gray;
         line-height: 1.43em;
-        font-size: 14px;
+        font-size: $small-font-size;
 
         @include bp-medium-only {
           line-height: 1.5em;
-          font-size: 16px;
+          font-size: $standard-font-size;
         }
       }
     }

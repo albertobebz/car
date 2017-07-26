@@ -4,21 +4,21 @@
 .subtitle
   %h1
     Your Showroom
-%ul.car-cards--container
+%ul.car-cards
   - @cars.each do |car|
-    %li.car--cards
+    %li.car-cards__unit
       .car__detail{ style: "background-image: url(#{image_path(car[:image_name])})" }
         - if car[:has_new_offer]
-          %button.car-offert
+          %button.btn-offert
             1 new offer
         .btn-bin{ "data-js" => "bin"}
           = image_tag("/assets/archive_icon.svg")
-        .car-details
-          %p.make-text
+        .car__detail--model
+          %p
             =car[:make]
-          %h3.model-text
+          %h3
             =car[:model]
-      .car__model
+      .car__details--spec
         %p.engine-text
           =car[:engine]
         %p.details-text

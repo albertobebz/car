@@ -1,7 +1,7 @@
 header {
   @include flexbox;
   @include align-items(center);
-  background-color: $corporate-blue;
+  background-color: $wow-blue;
   height: 48px;
 
   @include bp-medium {

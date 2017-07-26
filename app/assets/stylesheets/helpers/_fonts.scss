@@ -33,10 +33,10 @@
 }
 
 h1 {
-  font-size: 32px;
+  font-size: $main-heading-s-device;
   color: $dark-gray;
 
   @include bp-medium {
-    font-size: 40px;
+    font-size: $main-heading-l-device;
   }
 }
