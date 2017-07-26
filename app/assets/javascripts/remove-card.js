@@ -1,8 +1,8 @@
 $( document ).ready(function() {
 
-  /* Remove card */
-  $('.btn-bin').click(function(){
-    $(this).parent().parent().remove();
-  })
-
+  function removeCard(){
+    $(this).closest('li').remove();
+  }
+  $('.btn-bin').click(removeCard);
+  
 });
