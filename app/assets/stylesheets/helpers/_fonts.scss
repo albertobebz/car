@@ -1,0 +1,42 @@
+@mixin font-face($font-family, $file-path, $font-weight: inherit, $font-style: inherit) {
+  @font-face {
+    font-family: $font-family;
+      src: url('#{$file-path}.eot');
+      src: url('#{$file-path}.eot?#iefix') format('embedded-opentype'),
+           url('#{$file-path}.woff') format('woff'),
+           url('#{$file-path}.ttf') format('truetype'),
+           url('#{$file-path}.svg##{$font-family}') format('svg');
+    font-weight: $font-weight;
+    font-style: $font-style;
+  }
+}
+
+@include font-face(ProximaNova-Regular, 'ProximaNova-Regular');
+@include font-face(ProximaNova-Bold, 'ProximaNova-Bold');
+@include font-face(ProximaNova-Semibold, 'ProximaNova-Semibold');
+
+@mixin ProximaNova-Regular {
+  font-family: 'ProximaNova-Regular', arial, sans-serif;
+}
+
+@mixin ProximaNova-Bold {
+  font-family: 'ProximaNova-Bold', arial, sans-serif;
+}
+
+@mixin ProximaNova-Semiboldlt {
+  font-family: 'ProximaNova-Semiboldlt', arial, sans-serif;
+}
+
+
+@include headings {
+  @include ProximaNova-Bold;
+}
+
+h1 {
+  font-size: 32px;
+  color: $dark-gray;
+
+  @include bp-medium {
+    font-size: 40px;
+  }
+}

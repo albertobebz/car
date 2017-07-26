@@ -1,0 +1,25 @@
+%header
+  .img-wrapper
+    = image_tag("/assets/white-logo.svg")
+.subtitle
+  %h1
+    Your Showroom
+%ul.car-cards--container
+  - @cars.each do |car|
+    %li.car--cards
+      .car__detail{ style: "background-image: url(#{image_path(car[:image_name])})" }
+        - if car[:has_new_offer]
+          %button.car-offert
+            1 new offer
+        .btn-bin{ "data-js" => "bin"}
+          = image_tag("/assets/archive_icon.svg")
+        .car-details
+          %p.make-text
+            =car[:make]
+          %h3.model-text
+            =car[:model]
+      .car__model
+        %p.engine-text
+          =car[:engine]
+        %p.details-text
+          =car[:details]

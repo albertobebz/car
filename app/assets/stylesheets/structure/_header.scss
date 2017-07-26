@@ -1,0 +1,34 @@
+header {
+  @include flexbox;
+  @include align-items(center);
+  background-color: $corporate-blue;
+  height: 48px;
+
+  @include bp-medium {
+    height: 72px;
+  }
+
+  .img-wrapper {
+    margin-left: 10px;
+
+    img {
+      width: 126px;
+      height: auto;
+      margin-left: -5px; /* this need because the logo has extra padding-left */
+
+      @include bp-medium {
+        width: 159px;
+        height: auto;
+      }
+    }
+
+    @include bp-medium {
+      margin: 0 auto;
+      width: 672px;
+    }
+
+    @include bp-large {
+      width: 1139px;
+    }
+  }
+}
